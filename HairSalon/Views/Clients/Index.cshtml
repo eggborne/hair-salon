@@ -16,7 +16,13 @@ else
     {
       <li class="client-list-item">
         <span>@Html.DisplayFor(model => client.FirstName) @Html.DisplayFor(model => client.LastName)</span>
-        <p>Stylist: @Html.DisplayFor(model => client.Stylist.FirstName)</p> 
+        <p>Stylist: @Html.DisplayFor(model => client.Stylist.FirstName)</p>
+        <a href='@Url.Action("Edit", "Clients", new { id = client.ClientId })'>
+          <button class="yellow">Edit</button>
+        </a>
+        <a href='@Url.Action("Delete", "Clients", new { id = client.ClientId })'>
+          <button class="red">Delete</button>
+        </a>
       </li>
     }
   </ul>

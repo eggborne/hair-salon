@@ -85,6 +85,11 @@ li {
   justify-content: space-between;
 }
 
+.client-list-item button {
+  width: auto;
+  padding: 1rem;
+}
+
 .client-list-item  p {
   width: max-content;
 }
@@ -131,4 +136,5 @@ footer {
   color:#CCC;
   background:#333;
   padding:8px;
+  text-align: center;
 }

@@ -49,7 +49,7 @@ namespace HairSalon.Controllers
       Client thisClient = _db.Clients
                           .Include(client => client.Stylist)
                           .FirstOrDefault(client => client.ClientId == id);
-      ViewBag.PageTitle = $"Details for {thisClient.FirstName}";
+      ViewBag.PageTitle = $"Details for client {thisClient.FirstName} {thisClient.LastName}";
       return View(thisClient);
     }
 
@@ -57,7 +57,7 @@ namespace HairSalon.Controllers
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "FirstName");
-      ViewBag.PageTitle = $"Editing {thisClient.FirstName}";
+      ViewBag.PageTitle = $"Editing client {thisClient.FirstName} {thisClient.LastName}";
       return View(thisClient);
     }
 

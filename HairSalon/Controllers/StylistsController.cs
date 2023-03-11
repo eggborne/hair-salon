@@ -41,14 +41,14 @@ namespace HairSalon.Controllers
       Stylist thisStylist = _db.Stylists
                             .Include(stylist => stylist.Clients)
                             .FirstOrDefault(stylist => stylist.StylistId == id);
-      ViewBag.PageTitle = $"Details for {thisStylist.FirstName}";
+      ViewBag.PageTitle = $"Details for stylist {thisStylist.FirstName} {thisStylist.LastName}";
       return View(thisStylist);
     }
 
     public ActionResult Edit(int id)
     {
       Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
-      ViewBag.PageTitle = $"Editing {thisStylist.FirstName}";
+      ViewBag.PageTitle = $"Editing stylist {thisStylist.FirstName} {thisStylist.LastName}";
       return View(thisStylist);
     }
 
