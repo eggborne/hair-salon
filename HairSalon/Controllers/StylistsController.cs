@@ -63,6 +63,7 @@ namespace HairSalon.Controllers
     public ActionResult Delete(int id)
     {
       Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      ViewBag.PageTitle = $"Confirming deletion of {thisStylist.FirstName} {thisStylist.LastName}";
       return View(thisStylist);
     }
 

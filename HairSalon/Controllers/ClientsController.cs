@@ -72,7 +72,7 @@ namespace HairSalon.Controllers
     public ActionResult Delete(int id)
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-      ViewBag.PageTitle = $"Editing {thisClient.FirstName}";
+      ViewBag.PageTitle = $"Confirming deletion of {thisClient.FirstName} {thisClient.LastName}";
       return View(thisClient);
     }
 
