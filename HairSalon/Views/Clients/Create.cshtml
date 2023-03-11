@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HairSalon.Models.Client
+
+<h2>Add a new client</h2>
+@using (Html.BeginForm())
+{
+  <div><span>@Html.LabelFor(model => model.FirstName, "First name:")</span><span>@Html.TextBoxFor(model => model.FirstName)</span></div>
+  <div><span>@Html.LabelFor(model => model.LastName, "Last name:")</span><span>@Html.TextBoxFor(model => model.LastName)</span></div>
+  <div><span>@Html.LabelFor(model => model.Stylist)</span><span>@Html.DropDownList("StylistId")</span></div>
+  <button class="green" type="submit">Add Client</button>
+}
+
+<a href='@Url.Action("Index")'>
+  <button>Exit Without Saving</button>
+</a>

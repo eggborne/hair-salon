@@ -1,0 +1,134 @@
+body {
+  margin: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: #171717;
+  color: #ddd;
+}
+
+a {
+  text-decoration: none;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+button {
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  width: 10rem;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+}
+
+button:hover {
+  background-color: orange;
+}
+
+form, ul {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+form span:first-child {
+  width: max-content;
+}
+
+form {
+  gap: 1rem;
+}
+
+form > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+form button {
+  align-self: center;
+}
+
+ul {
+  margin: 0;
+  margin: 1rem 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+ul h2 {
+  width: max-content;
+}
+
+li {
+  padding: 1rem;
+}
+
+.stylist-list, .client-list {
+  min-width: 24rem;
+}
+
+.client-list-item {
+  justify-content: space-between;
+}
+
+.client-list-item  p {
+  width: max-content;
+}
+
+.stylist-list-item {
+  width: 100%;
+}
+
+li:nth-child(odd) {
+  background-color: #ffffff22;
+}
+
+li:nth-child(even) {
+  background-color: #ffffff11;
+}
+
+input, select {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0.5rem 0;
+  padding-left: 0.5rem;
+}
+select {
+  width: 12rem;
+}
+
+button.green {
+  background-color: rgb(187, 255, 187);
+}
+
+button.yellow {
+  background-color: rgb(244, 255, 187);
+}
+
+button.red {
+  background-color: rgb(255, 187, 187);
+}
+
+footer {
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  color:#CCC;
+  background:#333;
+  padding:8px;
+}
