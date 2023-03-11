@@ -5,6 +5,7 @@
 @model HairSalon.Models.Client
 
 <h2>Add a new client</h2>
+<p style="font-style: italic; opacity: 0.7;">Note: You must create a stylist before you can create a client.</p>
 @using (Html.BeginForm())
 {
   <div><span>@Html.LabelFor(model => model.FirstName, "First name:")</span><span>@Html.TextBoxFor(model => model.FirstName)</span></div>
