@@ -36,11 +36,15 @@ namespace HairSalon.Controllers
     public ActionResult Search(string ClientQuery)
     {
       if (ClientQuery == null || ClientQuery.Trim().Length == 0) {
-        List<Client> model = _db.Clients.ToList();
+        List<Client> model = _db.Clients
+                            .Include(client => client.Stylist)
+                            .ToList();
         ViewBag.PageTitle = $"Clients matching query '{ClientQuery}'";
         return View(model);
       } else {
-        List<Client> model = _db.Clients.ToList().Where(x => 
+        List<Client> model = _db.Clients
+                            .Include(client => client.Stylist)
+                            .ToList().Where(x => 
           x.FirstName.ToLower().Contains(ClientQuery.Trim().ToLower()) ||
           x.LastName.ToLower().Contains(ClientQuery.Trim().ToLower())
         ).ToList();
