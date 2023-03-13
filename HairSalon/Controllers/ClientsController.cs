@@ -35,12 +35,18 @@ namespace HairSalon.Controllers
     [HttpGet]
     public ActionResult Search(string ClientQuery)
     {
-      List<Client> model = _db.Clients.ToList().Where(x => 
-        x.FirstName.ToLower().Contains(ClientQuery.ToLower()) ||
-        x.LastName.ToLower().Contains(ClientQuery.ToLower())
-      ).ToList();
-      ViewBag.PageTitle = $"Clients matching query '{ClientQuery}'";
-      return View(model);
+      if (ClientQuery == null || ClientQuery.Trim().Length == 0) {
+        List<Client> model = _db.Clients.ToList();
+        ViewBag.PageTitle = $"Clients matching query '{ClientQuery}'";
+        return View(model);
+      } else {
+        List<Client> model = _db.Clients.ToList().Where(x => 
+          x.FirstName.ToLower().Contains(ClientQuery.Trim().ToLower()) ||
+          x.LastName.ToLower().Contains(ClientQuery.Trim().ToLower())
+        ).ToList();
+        ViewBag.PageTitle = $"Clients matching query '{ClientQuery.Trim()}'";
+        return View(model);
+      }
     }
 
     [HttpPost]

@@ -31,12 +31,18 @@ namespace HairSalon.Controllers
     [HttpGet]
     public ActionResult Search(string StylistQuery)
     {
-      List<Stylist> model = _db.Stylists.ToList().Where(x => 
-        x.FirstName.ToLower().Contains(StylistQuery.ToLower()) ||
-        x.LastName.ToLower().Contains(StylistQuery.ToLower())
-      ).ToList();
-      ViewBag.PageTitle = $"Stylists matching query '{StylistQuery}'";
-      return View(model);
+      if (StylistQuery == null || StylistQuery.Trim().Length == 0) {
+        List<Stylist> model = _db.Stylists.ToList();
+        ViewBag.PageTitle = $"Stylists matching query '{StylistQuery}'";
+        return View(model);
+      } else {
+        List<Stylist> model = _db.Stylists.ToList().Where(x => 
+          x.FirstName.ToLower().Contains(StylistQuery.Trim().ToLower()) ||
+          x.LastName.ToLower().Contains(StylistQuery.Trim().ToLower())
+        ).ToList();
+        ViewBag.PageTitle = $"Stylists matching query '{StylistQuery.Trim()}'";
+        return View(model);
+      }
     }
 
     [HttpPost]

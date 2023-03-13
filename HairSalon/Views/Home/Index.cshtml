@@ -11,16 +11,14 @@
     <span><input type="text" name="StylistQuery"></span>
     <button class="green" type="submit">Search</button>
   </div>
-  
 }
 @using (Html.BeginForm("Search", "Clients", FormMethod.Get))
 {
-  <div>
+  <div style="padding-bottom: 2rem">
     <span>Search Clients:</span>
     <span><input type="text" name="ClientQuery"></span>
     <button class="green" type="submit">Search</button>
   </div>
-  
 }
 <a href='@Url.Action("Index", "Stylists")'>
   <button>See All Stylists</button>
