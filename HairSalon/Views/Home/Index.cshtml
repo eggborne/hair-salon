@@ -4,6 +4,11 @@
 <h1>Eau Claire's Salon Administrator Dashboard</h1>
 
 
+@using (Html.BeginForm("Search", "Stylists"))
+{
+  <div><span>Search Stylists:</span> <span><input type="text" name="StylistQuery"></span></div>
+  <button class="green" type="submit">Search</button>
+}
 <a href='@Url.Action("Index", "Stylists")'>
   <button>See Stylists</button>
 </a>

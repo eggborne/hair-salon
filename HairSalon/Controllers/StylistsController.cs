@@ -29,6 +29,17 @@ namespace HairSalon.Controllers
     }
 
     [HttpPost]
+    public ActionResult Search(string StylistQuery)
+    {
+      List<Stylist> model = _db.Stylists.ToList().Where(x => 
+        x.FirstName.ToLower().Contains(StylistQuery.ToLower()) ||
+        x.LastName.ToLower().Contains(StylistQuery.ToLower())
+      ).ToList();
+      ViewBag.PageTitle = $"Stylists matching query '{StylistQuery}'";
+      return View(model);
+    }
+
+    [HttpPost]
     public ActionResult Create(Stylist stylist)
     {
       _db.Stylists.Add(stylist);
@@ -41,7 +52,7 @@ namespace HairSalon.Controllers
       Stylist thisStylist = _db.Stylists
                             .Include(stylist => stylist.Clients)
                             .FirstOrDefault(stylist => stylist.StylistId == id);
-      ViewBag.PageTitle = $"Details for stylist {thisStylist.FirstName} {thisStylist.LastName}";
+      ViewBag.PageTitle = $"Details for stylist {thisStylist.LastName} {thisStylist.LastName}";
       return View(thisStylist);
     }
 
