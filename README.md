@@ -24,7 +24,7 @@ A C#/ASP.NET/EFCore web app that allows a user to view and edit a database of ha
 
 ## Known Bugs
 
-*On the "Edit Client" screen, the "Back to List" button always goes back to the full client list even if the user got there from a link in a partial list on a "Stylist Details" page.
+* On the "Edit Client" screen, the "Back to List" button always goes back to the full client list even if the user got there from a link in a partial list on a "Stylist Details" page.
 
 ## Legal
 

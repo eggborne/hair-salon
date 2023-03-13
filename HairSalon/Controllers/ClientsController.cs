@@ -32,6 +32,17 @@ namespace HairSalon.Controllers
       return View();
     }
 
+    [HttpGet]
+    public ActionResult Search(string ClientQuery)
+    {
+      List<Client> model = _db.Clients.ToList().Where(x => 
+        x.FirstName.ToLower().Contains(ClientQuery.ToLower()) ||
+        x.LastName.ToLower().Contains(ClientQuery.ToLower())
+      ).ToList();
+      ViewBag.PageTitle = $"Clients matching query '{ClientQuery}'";
+      return View(model);
+    }
+
     [HttpPost]
     public ActionResult Create(Client client)
     {

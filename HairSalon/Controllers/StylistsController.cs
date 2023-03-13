@@ -28,7 +28,7 @@ namespace HairSalon.Controllers
       return View();
     }
 
-    [HttpPost]
+    [HttpGet]
     public ActionResult Search(string StylistQuery)
     {
       List<Stylist> model = _db.Stylists.ToList().Where(x => 

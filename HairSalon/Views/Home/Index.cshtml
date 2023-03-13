@@ -4,14 +4,28 @@
 <h1>Eau Claire's Salon Administrator Dashboard</h1>
 
 
-@using (Html.BeginForm("Search", "Stylists"))
+@using (Html.BeginForm("Search", "Stylists", FormMethod.Get))
 {
-  <div><span>Search Stylists:</span> <span><input type="text" name="StylistQuery"></span></div>
-  <button class="green" type="submit">Search</button>
+  <div>
+    <span>Search Stylists:</span>
+    <span><input type="text" name="StylistQuery"></span>
+    <button class="green" type="submit">Search</button>
+  </div>
+  
+}
+@using (Html.BeginForm("Search", "Clients", FormMethod.Get))
+{
+  <div>
+    <span>Search Clients:</span>
+    <span><input type="text" name="ClientQuery"></span>
+    <button class="green" type="submit">Search</button>
+  </div>
+  
 }
 <a href='@Url.Action("Index", "Stylists")'>
-  <button>See Stylists</button>
+  <button>See All Stylists</button>
 </a>
+<br />
 <a href='@Url.Action("Index", "Clients")'>
-  <button>See Clients</button>
+  <button>See All Clients</button>
 </a>
